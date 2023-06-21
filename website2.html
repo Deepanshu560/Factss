@@ -2,7 +2,7 @@
 <html>
 
 <head>
-  <title>Gaming Facts</title>
+  <title>Restricted Access</title>
 
   <style>
     body {
@@ -45,11 +45,11 @@
   <div id="registration">
     <h1>Registration Form</h1>
     <form id="registration-form">
-      Name <input type="text" id="name-input" required><br>
-      Second Name <input type="text" id="second-name-input" required><br>
-      Gmail <input type="email" id="email-input" required><br>
-      Phone no <input type="text" id="phone-input" required><br>
-      Password <input type="password" id="password-input" required><br>
+      Name <input type="text" id="name-input"><br>
+      Second Name <input type="text" id="second-name-input"><br>
+      Gmail <input type="text" id="email-input"><br>
+      Phone no <input type="text" id="phone-input"><br>
+      Password <input type="password" id="password-input"><br>
       Select Gender
       <input type="radio" name="gender" value="male"> Male
       <input type="radio" name="gender" value="female"> Female
@@ -60,7 +60,6 @@
   </div>
 
   <div id="content" class="hidden">
-    <!-- Website content here -->
     <h1>Facts About Minecraft</h1>
     <ul>
       <li>It was launched in 2011.</li>
@@ -186,33 +185,27 @@
 
     <marquee behavior="scroll" direction="left">Thank you for visiting our website :)</marquee>
 
-    
+    <img class="fact-image" src="image3.jpg" alt="Minecraft Image 3">
+    <img class="fact-image" src="image4.jpg" alt="Minecraft Image 4">
+
+    <script>
+      document.getElementById('registration-form').addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent form submission
+
+        var name = document.getElementById('name-input').value;
+        var secondName = document.getElementById('second-name-input').value;
+        var email = document.getElementById('email-input').value;
+        var phone = document.getElementById('phone-input').value;
+        var password = document.getElementById('password-input').value;
+
+        // Perform your registration logic here, e.g., sending the data to a server
+
+        // Display the content section and hide the registration section
+        document.getElementById('registration').classList.add('hidden');
+        document.getElementById('content').classList.remove('hidden');
+      });
+    </script>
   </div>
-
-  <script>
-    document.getElementById("registration-form").addEventListener("submit", function (event) {
-      event.preventDefault(); // Prevent form submission
-
-      var name = document.getElementById("name-input").value;
-      var secondName = document.getElementById("second-name-input").value;
-      var email = document.getElementById("email-input").value;
-      var phone = document.getElementById("phone-input").value;
-      var password = document.getElementById("password-input").value;
-      var gender = document.querySelector('input[name="gender"]:checked').value;
-
-      // Do something with the form data
-      console.log("Name:", name);
-      console.log("Second Name:", secondName);
-      console.log("Email:", email);
-      console.log("Phone:", phone);
-      console.log("Password:", password);
-      console.log("Gender:", gender);
-
-      // Show the content section
-      document.getElementById("registration").classList.add("hidden");
-      document.getElementById("content").classList.remove("hidden");
-    });
-  </script>
 
 </body>
 

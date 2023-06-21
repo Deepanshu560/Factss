@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Restricted Access</title>
+
+  <style>
+    body {
+      background: linear-gradient(to bottom, #292929, #000000);
+      color: white;
+    }
+
+    h1,
+    h2 {
+      background: #5c5c5c;
+      color: white;
+      padding: 10px;
+    }
+
+    li {
+      background: #000000;
+      color: white;
+    }
+
+    marquee {
+      background: #ff0000;
+      color: white;
+      padding: 10px;
+    }
+
+    .fact-image {
+      display: block;
+      max-width: 400px;
+      height: auto;
+      margin: 20px auto;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .validation-message {
+      color: red;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="registration">
+    <h1>Registration Form</h1>
+    <form id="registration-form">
+      Name <input type="text" id="name-input" required><br>
+      Second Name <input type="text" id="second-name-input" required><br>
+      Gmail <input type="email" id="email-input" required><br>
+      Phone no <input type="text" id="phone-input" required><br>
+      Password <input type="password" id="password-input" required><br>
+      Select Gender
+      <input type="radio" name="gender" value="male"> Male
+      <input type="radio" name="gender" value="female"> Female
+      <input type="radio" name="gender" value="rather-not-say"> Rather Not Say
+      <input type="radio" name="gender" value="custom"> Custom<br>
+      <input type="submit" value="Submit">
+      <p class="validation-message" id="validation-message"></p>
+    </form>
+  </div>
+
+  <div id="content" class="hidden">
+    <!-- Website content here -->
+  </div>
+
+  <script>
+    document.getElementById('registration-form').addEventListener('submit', function(event) {
+      event.preventDefault(); // Prevent form submission
+
+      var name = document.getElementById('name-input').value;
+      var secondName = document.getElementById('second-name-input').value;
+      var email = document.getElementById('email-input').value;
+      var phone = document.getElementById('phone-input').value;
+      var password = document.getElementById('password-input').value;
+
+      // Perform form validation
+      if (name.trim() === '' || secondName.trim() === '' || email.trim() === '' || phone.trim() === '' || password.trim() === '') {
+        document.getElementById('validation-message').textContent = 'Please fill out all the required fields.';
+        return; // Stop further execution
+      }
+
+      // Perform your registration logic here, e.g., sending the data to a server
+
+      // Display the content section and hide the registration section
+      document.getElementById('registration').classList.add('hidden');
+      document.getElementById('content').classList.remove('hidden');
+    });
+  </script>
+
+</body>
+
+</html>
+
